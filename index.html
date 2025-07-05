@@ -10,7 +10,7 @@
 
     html, body {
       height: 100%;
-      background: #0a0a08;
+      background: #0a0600;
       font-family: 'Orbitron', sans-serif;
       display: flex;
       align-items: center;
@@ -34,7 +34,7 @@
     }
 
     .intro-text {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: bold;
       text-align: center;
       color: #00ffff;
@@ -45,18 +45,9 @@
       animation: typing 2.5s steps(30, end) forwards, blink 0.7s step-end infinite;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 22ch }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
+    @keyframes typing { from { width: 0 } to { width: 21ch } }
+    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
     .vault-wrapper {
       background-color: #000;
@@ -80,7 +71,7 @@
 
     .subtitle {
       font-size: 0.85rem;
-      color: #a6fff9;
+      color: #a1fefe;
       margin-bottom: 30px;
     }
 
@@ -98,7 +89,7 @@
       padding: 12px;
       font-size: 0.75rem;
       text-align: left;
-      color: #a6fff9;
+      color: #d0fefe;
       box-shadow: 0 0 12px #00ffff;
       border-radius: 6px;
       min-width: 140px;
@@ -117,19 +108,26 @@
       border-radius: 6px;
       overflow: hidden;
       margin: 20px 0;
-      max-height: 280px;
     }
 
-    .vault-video video {
+    .video-wrapper {
+      position: relative;
       width: 100%;
-      height: auto;
-      display: block;
+      padding-top: 56.25%;
+      overflow: hidden;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
     .drop-details {
       font-size: 0.8rem;
-      color: #a6fff9;
+      color: #a1fefe;
       line-height: 1.6;
     }
 
@@ -180,7 +178,7 @@
 
     .footer {
       font-size: 0.7rem;
-      color: #a6fff9;
+      color: #a1fefe;
       margin-top: 15px;
     }
 
@@ -236,13 +234,13 @@
 
   <!-- Intro Screen -->
   <div class="intro-screen">
-    <div class="intro-text">🌀 INFINITY SEAL BREAKING...</div>
+    <div class="intro-text">💠 SIX EYES SYSTEM BOOTING...</div>
   </div>
 
   <!-- Vault Wrapper -->
   <div class="vault-wrapper">
-    <div class="main-title">🔷 ACCESS GRANTED: GOJO'S DOMAIN BREACH</div>
-    <div class="subtitle">👁️ (GOJO SATORU) // INFINITY VAULT</div>
+    <div class="main-title">💠 ACCESS GRANTED: GOJO’S DOMAIN BREACH</div>
+    <div class="subtitle">🌀 (GOJO SATORU) // INFINITY VAULT</div>
 
     <div class="stats-container">
       <div class="stats-box">
@@ -260,10 +258,12 @@
     </div>
 
     <div class="vault-video">
-      <video autoplay muted loop playsinline>
-        <source src="https://files.catbox.moe/0v9y7n.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="https://files.catbox.moe/0v9y7n.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
 
     <div class="drop-details">
@@ -272,19 +272,18 @@
       PROTOCOL ENDS IN: <span id="timer">03:00:00</span>
     </div>
 
-    <div class="code-block" id="drop-code">✨ GOJOX100</div>
+    <div class="code-block" id="drop-code">⭐ GOJOX100</div>
 
     <div class="button-group">
       <button class="vault-button use" onclick="copyDropCode()">⚡ USE CODE</button>
-      <button class="vault-button claim" onclick="window.location.href='https://otakudripx.blinkstore.in'">🌐 CLAIM ANOTHER DRIP</button>
+      <button class="vault-button claim" onclick="window.location.href='https://otakudripx.blinkstore.ai/'">📥 CLAIM ANOTHER DRIP</button>
     </div>
 
     <div class="footer">🔒 Infinity Access Logs Are Sealed</div>
-  </div>
 
   <!-- Scripts -->
   <script>
-    // Ember particles
+    // Ember Particles
     const container = document.getElementById("particle-container");
     for (let i = 0; i < 60; i++) {
       const p = document.createElement("span");
@@ -294,7 +293,7 @@
       container.appendChild(p);
     }
 
-    // Countdown timer (3 hours)
+    // Countdown Timer (3 hours)
     let seconds = 10800;
     const countdown = document.getElementById("timer");
     function updateTimer() {
@@ -307,7 +306,7 @@
     }
     setInterval(updateTimer, 1000);
 
-    // Clipboard copy
+    // Copy to Clipboard
     function copyDropCode() {
       const code = document.getElementById("drop-code").textContent;
       navigator.clipboard.writeText(code).then(() => {
